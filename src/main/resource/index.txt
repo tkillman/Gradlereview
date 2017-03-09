@@ -1,0 +1,34 @@
+GradleReview
+
+1.스프링이란?
+전자전부 표준 프레임워크
+
+2.특징
+자바, 경량,
+객체 주입 DI (dependency injection) ,
+관점 지향적 AOP (aspect - oriented programming)
+
+3.spring project의 종류
+ㄱ) maven
+ㄴ) gradle : 좀 가볍다, 대세는 gradle
+maven repository에서 원하는 소스 추가 후 프로젝트 우클릭 gradle-> gradle refresh
+
+
+4. 객체를 생성해보자. spring.chap01
+ㄱ) src/main/java 에 클래스 생성
+ㄴ) src/main/resource에 applicationContext.xml 생성
+<bean id="원하는이름" class="패키지명.클래스명">
+
+ㄷ_1) spring-context를 maven repository에서 import
+
+ㄷ_2) src/main/java에 main 메소드가 있는 클래스에서
+
+ApplicationContext context
+ = new GenericXmlApplicationContext("applicationContext.xml");
+ 
+ context.getBean("bean이름" , 명시적 형변환 클래스명.class)
+ 
+applicationText.xml 자리에는 String[] 배열이 와서 여러 xml 파일을 읽을수도 있다.
+
+5)
+
