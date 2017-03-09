@@ -15,6 +15,7 @@ maven repository에서 원하는 소스 추가 후 프로젝트 우클릭 gradle-> gradle refresh
 
 
 4. 객체를 생성해보자. spring.chap01
+
 ㄱ) src/main/java 에 클래스 생성
 ㄴ) src/main/resource에 applicationContext.xml 생성
 <bean id="원하는이름" class="패키지명.클래스명">
@@ -30,5 +31,35 @@ ApplicationContext context
  
 applicationText.xml 자리에는 String[] 배열이 와서 여러 xml 파일을 읽을수도 있다.
 
-5)
+5) 객체 의존성이란~~~?
+A 클래스에서 B 객체의 메소드를 부를 경우 A클래스는 B 클래스에 의존적
+
+6) 객체 생성 시 생성자에 값을 대입해보자. spring.chap02
+
+7) 객체 생성시 생성자에 값을 대입하는데 네임스페이스를 사용해보자. 
+applicationContext2.xml 참조
+applicationContext2.xml에서 namespace에서 c 클릭
+
+
+8) property 태그를 사용해서 객체 생성 후 값을 넣어보자. spring.chap03
+주의사항!
+
+ㄱ) 기본생성자로 만들기 때문에 생성자가 오버로딩되어 있다면 
+        기본 생성자를 반드시 적어줘야한다.
+        오버로딩되어 있지 않다면 컴파일러가 알아서 넣어준다.     
+
+ㄴ) property의 setXX 메소드가 반드시 존재해야 한다.
+
+
+9) property 태그의 네임스페이스를 사용해 값을 넣어보자. 
+applicationContext3.xml 참조
+
+10) look-up 메소드란? 사용해보자? spring.chap04
+look-up 메소드란 필요한 객체를 반환해주는 메소드
+방법은 applicationContext.xml에서 오버라이딩을 통해 필요 객체를 반환해준다. 
+
+11) 
+
+
+
 

@@ -1,10 +1,14 @@
-package spring.chap02;
+package spring.chap03;
 
 public class A {
     
 	private B b;
     int num;
-		
+	
+    public A(){
+    	System.out.println("기본 생성자 실행");
+    }
+    
 	public A(B b, int num){
 		System.out.println("B b, int num 생성자 실행");
 		this.b = b;
@@ -20,5 +24,19 @@ public class A {
 		//A는 B에 의존적이다.
 		b.doB();
 	}
+
+	
+	//set가 반드시 필요하다.
+	
+	public void setB(B b) {
+		this.b = b;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+	
+	
+	
 	
 }
