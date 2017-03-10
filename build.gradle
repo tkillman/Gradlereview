@@ -17,6 +17,8 @@ repositories {
 }
 
 dependencies {
+    
+    
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api 'org.apache.commons:commons-math3:3.6.1'
 
@@ -28,6 +30,7 @@ dependencies {
     
     // https://mvnrepository.com/artifact/org.springframework/spring-context
 	compile group: 'org.springframework', name: 'spring-context', version: '4.3.6.RELEASE'
+	
     
 }
 
