@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="a" class="spring.chap05.A"></bean>
+<bean id="collEx" class="spring.chap05.CollEx">
+
+<!-- list값 넣어보기 -->
+<property name="listValue">
+<list>
+<!-- 원래 list에는 기본형 변수는 못 들어가지만 Integer클래스를 사용해서 -->
+<value type="java.lang.Integer">20</value>
+<value type="java.lang.Integer">230</value>
+<ref bean="a"/>
+</list>
+</property>
+
+<!-- map에 값 넣어보기 -->
+<property name="mapValue">
+<map>
+<entry><!-- entry는 key와 value 묶음 -->
+<key><value>keyName0</value></key>
+<ref bean="a"/>
+</entry>
+
+<entry><!-- entry는 key와 value 묶음 -->
+<key><value>keyName1</value></key>
+<value>keyValue1</value>
+</entry>
+
+
+<entry><!-- entry는 key와 value 묶음 -->
+<key><value>keyName2</value></key>
+<value>keyValue2</value>
+</entry>
+
+</map>
+</property>
+
+<!-- properties에 값 넣어보기 -->
+<property name="propValue">
+<props>
+<prop key="keyP0">keyV0</prop>
+<prop key="keyP1">keyV1</prop>
+<prop key="keyP2">keyV2</prop>
+</props>
+</property>
+
+<!-- set에 값 넣어보기 -->
+<property name="setValue">
+<set>
+<value type="int">98</value>
+<ref bean="a"/>
+<value>setValue1</value>
+<value>setValue2</value>
+</set>
+</property>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</bean>
+
+
+</beans>

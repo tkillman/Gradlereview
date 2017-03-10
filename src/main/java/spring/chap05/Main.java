@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new GenericXmlApplicationContext("applicationContext5.xml");
+		ApplicationContext context = new GenericXmlApplicationContext("applicationContext05.xml");
 		
 		CollEx collEx = context.getBean("collEx",CollEx.class);
 		
