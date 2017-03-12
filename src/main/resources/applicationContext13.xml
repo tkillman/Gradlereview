@@ -7,20 +7,12 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
-
 <bean name="core" class="spring.chap13.Core"></bean>
-<bean name="comm" class="spring.chap13.Comm"></bean>
 
+<context:annotation-config></context:annotation-config>
+<context:component-scan base-package="spring.chap13"></context:component-scan>
 
-<aop:config>
-<aop:pointcut expression="execution(public * *(..))" id="pCut"/>
-
-<aop:aspect ref="comm">
-<aop:before method="doComm" pointcut-ref="pCut"/>
-</aop:aspect>
-</aop:config>
-
+<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
 
 </beans>

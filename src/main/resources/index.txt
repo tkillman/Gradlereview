@@ -116,13 +116,45 @@ Advice 공통 모듈이 실행될 시기
 join Point 핵심모듈의 메소드 호출
 pointCut 핵심모듈의 메소드 모양
  
-<<<<<<< HEAD
+ 
 20) AOP를 POJO방식으로 사용해보기//spring.chap12
-=======
+
+ㄱ) dependencies 에 aspectjweaver 추가
+ㄴ) application.xml에서 aop namespace 추가
+ㄷ)
+<aop-config>
+<aop:aspect ref="">
+<aop:시점 method="" pointcut-ref="">
+</aop-config>
+
+참고 : expression 표현식 -> http://devjms.tistory.com/70
+
+21) AOP를  어노테이션으로 구현해보기 // spring.chap13
+
+application.xml에 설정
+<context:annotation-config></context:annotation-config>
+<context:component-scan base-package="spring.chap13"></context:component-scan>
+<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+class 파일에
+@Component
+@Aspect
+
+@Pointcut("표현식")
+더미메소드
+
+@Around("더미메소드")
 
 
 
 
 
 
->>>>>>> branch 'master' of https://github.com/tkillman/Gradlereview.git
+
+
+
+
+
+
+
+

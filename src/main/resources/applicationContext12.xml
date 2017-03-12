@@ -10,14 +10,12 @@
 <bean name="core" class="spring.chap12.Core"></bean>
 <bean name="comm" class="spring.chap12.Comm"></bean>
  
- 
  <aop:config proxy-target-class="true">
- <aop:pointcut id="pointC" expression="execution(public * *(..))" />
+ <aop:pointcut id="pointC" expression="bean(core)" />
  
  <aop:aspect ref="comm">
  <aop:before method="doComm" pointcut-ref="pointC"/>
  </aop:aspect>
- 
  </aop:config>
  
 </beans>

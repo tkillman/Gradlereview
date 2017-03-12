@@ -8,8 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		ApplicationContext context = new GenericXmlApplicationContext("applicationContext13.xml");
-		CoreInterface core = (CoreInterface)context.getBean("core");
-		
+		Core core =(Core) context.getBean("core");
 		core.doCore();
 		
 	}

@@ -1,14 +1,9 @@
 package spring.chap13;
 
-public class Core implements CoreInterface{
+public class Core {
 
-	@Override
-	public void doCore() {
-		
+	public void doCore(){
 		System.out.println("doCore ½ÇÇà");
-		
 	}
-
-	
 	
 }
