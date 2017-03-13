@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-<bean id="comm" class="spring.chap11.Comm"/>
-<bean id="core" class="spring.chap11.Core"></bean>
-<aop:config>
-<aop:pointcut id="corePointcut" expression="bean(core*)"/>
-<!-- 인터페이스 service를 구현한 클래스에서 어떤 메소드를 불렀을 때 -->
-<aop:aspect id="commAspect" ref="comm">
-<aop:around pointcut-ref="corePointcut" method="doComm"/>
-</aop:aspect>
-</aop:config>
+
+
+<context:annotation-config></context:annotation-config>
+
+<context:component-scan base-package="spring.chap11"></context:component-scan>
+
 </beans>
