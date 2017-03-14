@@ -21,12 +21,25 @@
 <property name="typeAliasesPackage" value="spring.chap15"></property>
 </bean>
 
+
+<!-- sqlSessionDaoSupport를 통해 template bean 코드를 줄일 수 있다. -->
+<!-- 
+
 <bean name="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 <constructor-arg ref="sqlSessionFactory"></constructor-arg>
 </bean>
 
+
+
 <bean name="dao" class="spring.chap15.Dao">
 <property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+</bean> 
+
+-->
+
+
+<bean name="dao" class="spring.chap15.Dao">
+<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 </bean>
 
 </beans>

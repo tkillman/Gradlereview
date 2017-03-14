@@ -56,7 +56,6 @@ compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.10'
 	// https://mvnrepository.com/artifact/org.springframework/spring-orm
 	compile group: 'org.springframework', name: 'spring-orm', version: '4.2.5.RELEASE'
 
->>>>>>> branch 'master' of https://github.com/tkillman/Gradlereview.git
     
 }
 
