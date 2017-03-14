@@ -1,0 +1,160 @@
+GradleReview
+
+1.스프링이란?
+전자전부 표준 프레임워크
+
+2.특징
+자바, 경량,
+객체 주입 DI (dependency injection) ,
+관점 지향적 AOP (aspect - oriented programming)
+
+3.spring project의 종류
+ㄱ) maven
+ㄴ) gradle : 좀 가볍다, 대세는 gradle
+maven repository에서 원하는 소스 추가 후 프로젝트 우클릭 gradle-> gradle refresh
+
+
+
+4. 객체를 생성해보자. //spring.chap01
+
+ㄱ) src/main/java 에 클래스 생성
+ㄴ) src/main/resource에 applicationContext.xml 생성
+<bean id="원하는이름" class="패키지명.클래스명">
+
+ㄷ_1) spring-context를 maven repository에서 import
+
+ㄷ_2) src/main/java에 main 메소드가 있는 클래스에서
+
+ApplicationContext context
+ = new GenericXmlApplicationContext("applicationContext.xml");
+ 
+ context.getBean("bean이름" , 명시적 형변환 클래스명.class)
+ 
+applicationText.xml 자리에는 String[] 배열이 와서 여러 xml 파일을 읽을수도 있다.
+
+5) 객체 의존성이란~~~?
+A 클래스에서 B 객체의 메소드를 부를 경우 A클래스는 B 클래스에 의존적
+
+6) 객체 생성 시 생성자에 값을 대입해보자. //spring.chap02
+
+7) 객체 생성시 생성자에 값을 대입하는데 네임스페이스를 사용해보자. 
+applicationContext2.xml 참조
+applicationContext2.xml에서 namespace에서 c 클릭
+
+
+8) property 태그를 사용해서 객체 생성 후 값을 넣어보자. //spring.chap03
+주의사항!
+
+ㄱ) 기본생성자로 만들기 때문에 생성자가 오버로딩되어 있다면 
+        기본 생성자를 반드시 적어줘야한다.
+        오버로딩되어 있지 않다면 컴파일러가 알아서 넣어준다.     
+
+ㄴ) property의 setXX 메소드가 반드시 존재해야 한다.
+
+
+9) property 태그의 네임스페이스를 사용해 값을 넣어보자. 
+applicationContext3.xml 참조
+
+
+10) look-up 메소드란? 사용해보자? //spring.chap04
+look-up 메소드란 필요한 객체를 반환해주는 메소드
+방법은 applicationContext.xml에서 오버라이딩을 통해 필요 객체를 반환해준다. 
+
+
+11) list, map, set, properties 를  *.xml에서 구현해보자 //spring.chap05
+
+
+12) *.xml에서 의존관계를 자동 설정하여 집어넣어보자. //spring.chap06
+
+
+13) 빈의 기본 범위와 기본 범위를 변경해보아라. //spring.chap07
+
+scope를 통해서 변경 가능
+
+
+14) 스프링의 컨테이너란?
+객체를 관리(생성) 하는 것.
+BeanFactory, ApplicationContext, WebApplicationContext
+
+
+
+15) bean의 라이프 싸이클에 대해 이야기 해 보아라. //spring.chap08
+ㄱ) 빈 객체 생성
+ㄴ) 빈 프로버티 설정
+ㄷ) @PostConstruct
+ㄹ) 지정된 init 메소드
+ㅁ) 사용
+ㅂ) @PreDestory
+ㅅ) 지정된 destory 메소드
+
+
+16) @Required , @Autowired @Qulifier, @Resource(name="") //spring.chap09
+namespace에서 context 설정 저장 후
+<context:annotation-config/> 코드 추가
+
+17) @Component, @Service , @Controller  //spring.chap10
+@Component 자동으로 빈 등록, 빈 이름은 클래스 이름의 첫자를 소문자 나머지는 동일
+@Scope("prototype") 지정 가능
+
+18) @Configuration, @Bean 사용해보기 //spring.chap11
+
+ㄱ) applicationContext.xml에 지정
+<context:annotation-config></context:annotation-config>
+<context:component-scan base-package="spring.chap11"></context:component-scan>
+
+ㄴ) xml 파일처럼 사용할 클래스를 @Configuration 지정
+메소드에 @Bean(name="") 지정
+
+메소드의 반환형이 객체, name으로 지정된 것이 빈네임
+
+19) AOP란? 
+관점 지향적 프로그래밍
+
+Aspect 공통 모듈
+Target-object 핵심 모듈
+Advice 공통 모듈이 실행될 시기
+join Point 핵심모듈의 메소드 호출
+pointCut 핵심모듈의 메소드 모양
+ 
+ 
+20) AOP를 POJO방식으로 사용해보기//spring.chap12
+
+ㄱ) dependencies 에 aspectjweaver 추가
+ㄴ) application.xml에서 aop namespace 추가
+ㄷ)
+<aop-config>
+<aop:aspect ref="">
+<aop:시점 method="" pointcut-ref="">
+</aop-config>
+
+참고 : expression 표현식 -> http://devjms.tistory.com/70
+
+21) AOP를  어노테이션으로 구현해보기 // spring.chap13
+
+application.xml에 설정
+<context:annotation-config></context:annotation-config>
+<context:component-scan base-package="spring.chap13"></context:component-scan>
+<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+class 파일에
+@Component
+@Aspect
+
+@Pointcut("표현식")
+더미메소드
+
+@Around("더미메소드")
+
+
+
+
+
+
+
+
+
+
+
+
+
+

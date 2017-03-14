@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class Around1 {
 
+	
 	@Pointcut("bean(core)")
 	public void dumM(){}
 	

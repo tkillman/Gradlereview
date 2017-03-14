@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- autowire byName 사용 
+property의 이름과 bean의 이름이 같은 것을 찾아 주입
+-->
+<!-- <bean name="a" class="spring.chap06.A" autowire="byName"></bean>
+<bean name="b" class="spring.chap06.B"></bean>
+<bean name="c" class="spring.chap06.C"></bean>
+ -->
+
+<!-- autowire byType 사용 
+같은타입 = 즉 상속관계에 있는 것들을 같은 타입이라고 한다.
+C c = new C_sub(); 객체가 주입됨.
+-->
+
+<!-- <bean name="a" class="spring.chap06.A" autowire="byType"></bean>
+<bean name="b" class="spring.chap06.B" ></bean>
+<bean name="c" class="spring.chap06.C_sub"></bean>
+ -->
+
+
+<!-- autowire constructor 
+	생성자의 파라미터 값과 같은 타입을 자동주입
+-->
+
+</beans>
