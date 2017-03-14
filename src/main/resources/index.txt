@@ -145,15 +145,62 @@ class 파일에
 
 @Around("더미메소드")
 
+22)JDBC 에서 jdbcTemplate 사용법 //spring.chap14
+
+ㄱ)build.gradle에 3개 추가
+
+compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.6.RELEASE'
+compile files('libs/ojdbc6.jar')
+compile group: 'c3p0', name: 'c3p0', version: '0.9.1.2'
+
+ㄴ)db.properties에 driver,url,username,password 정의
+<context> 태그로 application.xml에 넣어준다. 
+ComboPooledDataSource 클래스를 이용해 dataSource bean을 만드는데 ${값}으로 넣어준다.
+만들어진 dataSource 객체는 jdbcTemplate property로 넣어주면 완성.
+
+ㄷ) jdbcTemplate의 주요 메소드
+
+query(sql,object[],rowMapper)//list를 가져온다 , 
+update(sql,object[],rowMapper)//insert,update,delete 기능을 수행하며 object[] 생략 가능
+queryForObject(sql,class) //하나의 결과를 가져온다.
 
 
+ㄹ) rowMapper를 보내주기 위해서
+implements RowMapper<T>해서 maprow 메소드에 dto와 rs를 연결해준다.
 
+23) spring에서 myBatis 사용법 //spring.chap15
+ㄱ) 3개를 bulid.gradle에 세팅한다.
+compile group: 'org.mybatis', name: 'mybatis', version: '3.3.1'
+compile group: 'org.mybatis', name: 'mybatis-spring', version: '1.2.2'
+compile group: 'org.springframework', name: 'spring-orm', version: '4.2.5.RELEASE'
 
+ㄴ)
+applicationContext.xml에
+ComboPooledDataSource 클래스를 이용해 dataSource bean을 생성
 
+sqlSessionFactoryBean 클래스를 이용해 sqlSessionFactory bean 생성하는데
+이때 property 설정이 중요!
+<property name="dataSource" ref="dataSource"></property>
+<property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+<property name="typeAliasesPackage" value="spring.chap15"></property>
 
+sqlSessionTemplate 클래스를 이용해 빈을 생성하는데 property값으로
+sqlSessionFactory bean을 가져온다.
 
+ㄷ)Dao 클래스에서 sqlSessionTemplate 객체를 가져와서
 
+select("메퍼 네임스페이스.태그 아이디명",전달 오브젝트 or 기본형 데이터 타입)
+update("메퍼 네임스페이스.태그 아이디명",전달 오브젝트 or 기본형 데이터 타입)
+insert("메퍼 네임스페이스.태그 아이디명",전달 오브젝트 or 기본형 데이터 타입)
+delete("메퍼 네임스페이스.태그 아이디명",전달 오브젝트 or 기본형 데이터 타입) 실행
 
+ㄹ) mapper.xml에
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+추가 후
+
+mapper namespace와 <태그 id=""> 을 지정해 메소드를 부를 때 사용
 
 
 
